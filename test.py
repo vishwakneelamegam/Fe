@@ -27,3 +27,4 @@ jS = {
 
 obj = functionExecutor()
 print(obj.textParsing("what is our name ",jS))
+print(obj.textParsing("turn on the motor ",jS))
