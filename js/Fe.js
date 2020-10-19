@@ -3,13 +3,23 @@ function on(){
 	return "light on";
 }
 
+function time(){
+        var d = new Date();
+        return "it's " + d.getHours()+":"+d.getMinutes();
+}
+
+function date(){
+         var d = new Date();
+         return d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+}
+
 function off(){
 	return "light off";
 }
 
 //it is used by fn class to find the function inside string. 
 const jsonObject = {
-	"function":["on","off"],
+	"function":["on","off","time","date"],
 	"on":{
 		"name":"on",
 		"argument":[]
@@ -17,7 +27,15 @@ const jsonObject = {
 	"off":{
 		"name":"off",
 		"argument":[]
-	}
+	},
+        "time":{
+                "name":"time",
+                "argument":[]
+        },
+        "date":{
+               "name":"date",
+               "argument":[]
+        }  
 }
 
 //used to execute function found by fn class.
@@ -28,6 +46,12 @@ function ex(funcName){
 	if(funcName == "off"){
 		return off();
 		}
+        if(funcName == "time"){
+                return time();
+                }
+        if(funcName == "date"){
+                return date();
+                }
 	else{
 		return "error:2"
 		}
@@ -52,7 +76,8 @@ var fn = {
       }
     }
     catch(err){
-      return "err:0";
+      
+      return err;
     }
   }
 };
