@@ -1,10 +1,48 @@
 <html>
-<body>
-<p id="demo"></p>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input[type=text], select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+textarea{
+color: #fff;
+width:100%;
+}
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+height:10%;
+color: black;
+text-align: center;
+}
+</style>
 <script type="text/javascript" src="Fe.js"></script>
 <script>
-document.getElementById("demo").innerHTML = fn.parse("turn off");
+function handleKeyPress(e){
+var key=e.keyCode || e.which;
+if (key==13){
+var inp = document.getElementById("textIp").value;
+var data = fn.parse(inp);
+document.getElementById("showOp").value += "ME :> " + inp + "\n";
+document.getElementById("showOp").value += "FE :> " + data + "\n";
+}
+}
 </script>
-
+</head>
+<body>
+<textarea cols="60" rows="30" style="background-color:black;" id="showOp">
+Function Executor
+</textarea>
+</br></br>
+<input type="text" id="textIp" name="fname" onkeypress="handleKeyPress(event)">
 </body>
 </html>
